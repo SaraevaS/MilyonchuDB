@@ -22,8 +22,6 @@ public class MilyonchuDB {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
          DAO.DB db = new DAO.DB();
-       Question q1 = new Question("Yanvar ayinda neche gun var?", "29", "32","21", "31");
-        //db.saveQuestion(q1);
         int start = 1;
         while(start ==1 ){
             System.out.println("Welcome to game 'Milyonchu'!");
@@ -34,24 +32,36 @@ public class MilyonchuDB {
                 System.out.println(x);
                 System.out.println("Please, enter the question: ");
                String a = in.nextLine();
-                if(a.isEmpty()) System.out.println("Please, enter the question2:");
-                else{
+                while(a.isEmpty()) {
+                    System.out.println("Please, enter the question2:");
+                    a = in.nextLine();
+                }
+                
                      System.out.println("Please, enter the first variant :");
                     String var1 = in.nextLine();
-                      if(var1.isEmpty()) System.out.println("Please, enter the first variant :");
-                      else {
+                      while(var1.isEmpty()){
+                          System.out.println("Please, enter the first variant :");
+                          var1 = in.next();
+                      }
                            System.out.println("Please, enter the second variant :");
                            String var2 = in.nextLine();
-                      if(var2.isEmpty()) System.out.println("Please, enter the second variant :");
-                      else{
+                      while(var2.isEmpty()) {
+                          System.out.println("Please, enter the second variant :");
+                          var2 = in.next();
+                      }
                            System.out.println("Please, enter the third variant :");
                            String var3 = in.nextLine();
-                      if(var3.isEmpty()) System.out.println("Please, enter the third variant :");
-                      else{
+                      while(var3.isEmpty()) {
+                          System.out.println("Please, enter the third variant :");
+                          var3 = in.next();
+                      }
                           System.out.println("Please, enter the right answer :");
                            String answer = in.nextLine();
-                      if(answer.isEmpty()) System.out.println("Please, enter the right answer :");
-                      else{
+                      
+                      while(answer.isEmpty()) {
+                          System.out.println("Please, enter the right answer :");
+                          answer = in.next();
+                      }
                           System.out.println("Thank you!");
                           Question new_question = new Question(a, var1, var2, var3, answer);
                           if(db.saveQuestion(new_question)) System.out.println("Question added successfully!");
@@ -65,11 +75,7 @@ public class MilyonchuDB {
                     return;
                     }
                       }
-                      }
-                      }
-                      }
-                }
-            }
+              
             else if (ans.equals("S") || ans.equals("s")){
                 int general_score = 0;
                 List <Question> list = new ArrayList<>();
